@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('./usuarios/usuarios.module').then( m => m.UsuariosModule )
     },
     {
+        path: 'validacion',
+        loadChildren: () => import('./validacion/validacion.module').then( m => m.ValidacionModule )
+    },
+    {
       path: '404',
       component: ErrorPageComponent
     },

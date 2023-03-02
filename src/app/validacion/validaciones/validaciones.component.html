@@ -1,0 +1,41 @@
+  <form [formGroup]="form" (ngSubmit)="submit()">
+        
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+            <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+            <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
+            <div *ngIf="f['name'].errors && f['name'].errors['maxlength']">Name must not exceed 20 character.</div>
+        </div>
+    </div>
+     
+    <div class="form-group">
+        <label for="lastname">Last name:</label>
+        <input 
+            formControlName="lastname"
+            id="lastname" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f['lastname'].touched && f['lastname'].invalid" class="alert alert-danger">
+            <div *ngIf="f['lastname'].errors && f['lastname'].errors['required']">Last name is required.</div>
+            <div *ngIf="f['lastname'].errors && f['lastname'].errors['minlength']">Name should be 3 character.</div>
+            <div *ngIf="f['lastname'].errors && f['lastname'].errors['maxlength']">Name must not exceed 20 character.</div>
+        </div>
+    </div>
+     
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input 
+            formControlName="age"
+            id="age" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="form.get('age')?.errors" class="alert alert-danger"> {{ errorAge }} </div>
+    </div>
+    
+</form>
